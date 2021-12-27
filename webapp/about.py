@@ -1,5 +1,5 @@
 import justpy as jp
-
+from webapp import layout
 class About:
     # Quasar page as the
     # page that has the visuals.So
@@ -16,8 +16,14 @@ class About:
     path="/about"
 
     def serve(self):
+
         wp = jp.QuasarPage(tailwind=True)
-        div = jp.Div(a=wp, classes="bg-gray-200 h-screen")
+
+        lay = layout.DefaultLayout(a=wp, view="hHh lpR fFf")
+
+        container = jp.QPageContainer(a=lay)
+
+        div = jp.Div(a=container, classes="bg-gray-200 h-screen")
         jp.Div(a=div, text="This is About page",classes="text-4xl m-2")
         jp.Div(a=div, text="""
         is simply dummy text of the printing
